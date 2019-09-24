@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+    <title>Soletrando - Terminal do Mesário</title>
+  </head>
+
+  <style>
+    #check-word {
+      background-color: #4CAF50; /* Green */
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+    }
+    #new-word {
+      background-color: #008CBA; /* Green */
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+    }
+    input[name=word]{
+      width: 100%;
+      padding: 4px 20px;
+      margin: 2px 0;
+      box-sizing: border-box;
+      font-size: 20px;
+    }
+    input[name=candidate-input]{
+      width: 100%;
+      padding: 4px 20px;
+      margin: 2px 0;
+      box-sizing: border-box;
+      font-size: 20px;
+    }
+  </style>
+
+  <script>
+    const { ipcRenderer } = require('electron');
+
+    function corrige(){
+      let Data = { candidate:document.getElementById("candidate-input").value, word:document.getElementById("word-input").value}
+      ipcRenderer.send('corrige', Data);
+    }
+
+    function word_bind(){
+      let Data = { candidate:document.getElementById("candidate-input").value, word:document.getElementById("word-input").value}
+      ipcRenderer.send('wordsync', Data);
+    }
+
+    function reset(){
+      ipcRenderer.send('reset', true);
+      document.getElementById("candidate-input").value = "";
+      document.getElementById("word-input").value = "";
+    }
+
+  </script>
+
+  <body>
+    <h1>Terminal do Mesário</h1>
+    <p>Esta janela deve estar na tela do computador ou notebook.</p>    
+    <h3>Palavra A Ser Soletrada:</h3>
+    <input id="word-input" type="text" name="word">
+    <h3>Entrada do Competidor:</h3>
+    <input onkeyup="word_bind()" id="candidate-input" type="text" name="candidate-input"> <br>
+    <br>
+    <br>
+    <button id="check-word" type="button" name="button" onclick="corrige()">Conferir</button>
+    <button id="new-word" type="button" name="button" onclick="reset()">Nova Palavra</button>
+
+    <div>
+      <h2>Informações Sobre o Desenvolvedor do programa.</h2>
+      <p>Desenvolvido por Bruno do Nascimento Maciel.</p>
+    </div>
+  </body>
+
+</html>

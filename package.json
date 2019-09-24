@@ -1,0 +1,38 @@
+{
+  "name": "soletrando",
+  "version": "3.0.0",
+  "description": "Software to auxiliate in spelling competitions.",
+  "main": "./app/main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "build -l --x64"
+  },
+  "build": {
+    "appId": "com.macielti.soletrando",
+    "copyright": "Copyright © 2018 Bruno do Nascimento Maciel",
+    "productName": "Soletrando",
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/macielti/soletrando.git"
+  },
+  "author": {
+    "name": "Bruno do Nascimento Maciel",
+    "email": "brunodonascimentomaciel@gmail.com"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/macielti/soletrando/issues"
+  },
+  "homepage": "https://github.com/macielti/soletrando#readme",
+  "devDependencies": {
+    "electron": "^3.1.13",
+    "electron-builder": "^20.38.2"
+  }
+}
