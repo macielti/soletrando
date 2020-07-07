@@ -32,7 +32,7 @@
   },
   "homepage": "https://github.com/macielti/soletrando#readme",
   "devDependencies": {
-    "electron": "^3.1.13",
+    "electron": "^9.1.0",
     "electron-builder": "^20.38.2"
   }
 }
