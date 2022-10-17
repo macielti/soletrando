@@ -15,3 +15,8 @@ jobs:
           npm install
           npm run dist
           ls dist
+      - name: Upload Windows executable
+        uses: actions/upload-artifact@v2
+        with:
+          name: Soletrando Setup 3.0.0.exe
+          path: dist/Soletrando Setup 3.0.0.exe
