@@ -5,12 +5,18 @@
   "main": "./app/main.js",
   "scripts": {
     "start": "electron .",
-    "dist": "build -l --x64"
+    "dist": "build"
   },
   "build": {
     "appId": "com.macielti.soletrando",
     "copyright": "Copyright © 2018 Bruno do Nascimento Maciel",
     "productName": "Soletrando",
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    },
     "win": {
       "target": "NSIS"
    }
