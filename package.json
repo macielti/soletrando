@@ -8,7 +8,7 @@
     "dist": "build"
   },
   "build": {
-    "publish": [],
+    "publish": null,
     "appId": "com.macielti.soletrando",
     "copyright": "Copyright © 2018 Bruno do Nascimento Maciel",
     "productName": "Soletrando",
