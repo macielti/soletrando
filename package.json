@@ -16,7 +16,10 @@
         "AppImage",
         "deb"
       ]
-    }
+    },
+    "win": {
+      "target": "NSIS"
+   }
   },
   "repository": {
     "type": "git",
