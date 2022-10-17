@@ -14,4 +14,4 @@ jobs:
         run: |
           npm install
           npm run dist
-          ls
+          ls dist
