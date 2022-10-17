@@ -13,8 +13,7 @@ jobs:
       - name: Generate NSIS Windows dist files
         run: |
           npm install
-          npm run dist --publish never
-          ls dist
+          npm run dist
       - name: Upload Windows executable
         uses: actions/upload-artifact@v2
         with:
