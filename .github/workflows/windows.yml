@@ -1,0 +1,15 @@
+name: Dist Windows
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+
+  dist-windows:
+    runs-on: windows-2019
+    steps:
+      - uses: actions/checkout@v2
+      - name: Generate NSIS Windows dist files
+        run: |
+          npm --version
