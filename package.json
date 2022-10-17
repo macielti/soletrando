@@ -12,12 +12,14 @@
     "copyright": "Copyright © 2018 Bruno do Nascimento Maciel",
     "productName": "Soletrando",
     "linux": {
+      "publish": ["never"],
       "target": [
         "AppImage",
         "deb"
       ]
     },
     "win": {
+      "publish": ["never"],
       "target": "NSIS"
    }
   },
