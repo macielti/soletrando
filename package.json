@@ -11,12 +11,6 @@
     "appId": "com.macielti.soletrando",
     "copyright": "Copyright © 2018 Bruno do Nascimento Maciel",
     "productName": "Soletrando",
-    "linux": {
-      "target": [
-        "AppImage",
-        "deb"
-      ]
-    },
     "win": {
       "target": "NSIS"
    }
