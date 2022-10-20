@@ -83,14 +83,13 @@ app.on('activate', function () {
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
 
-
 ipcMain.on('wordsync', (event, arg) => {
     // Return some data to the renderer process with the mainprocess-response ID
     presentationScreen.webContents.send('word_bind', arg);
 });
 //receber o comando de correção
-ipcMain.on('corrige', (event, arg) => {
-    presentationScreen.webContents.send('corrige', arg);
+ipcMain.on('spellingCheck', (_, arg) => {
+    presentationScreen.webContents.send('spellingCheck', arg);
 });
 //resetar para entrar com uma nova palavra
 ipcMain.on('reset', (event, arg) => {

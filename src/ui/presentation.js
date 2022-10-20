@@ -1,21 +1,22 @@
 const { ipcRenderer } = require('electron');
 
 ipcRenderer.on('word_bind', (event, arg) => {
-document.getElementById("word-candidate").innerHTML = arg.candidate.toUpperCase();
+    document.getElementById("word-candidate").innerHTML = arg.candidate.toUpperCase();
 });
 
-ipcRenderer.on('corrige', (event, arg) => {
-document.getElementById("correct-word").innerHTML = arg.word.toUpperCase();
-document.getElementById("correct-word").style.backgroundColor = "#00ff00";
-if(arg.candidate.toLowerCase().trim() === arg.word.toLowerCase().trim()){
-    document.getElementById("word-candidate").style.backgroundColor = "#00ff00";
-    (new Audio("../../assets/correct.mp3")).play();
-}
-else{
-    document.getElementById("word-candidate").style.backgroundColor = "#ff0000";
-    (new Audio("../../assets/wrong.mp3")).play();
-}
-});
+ipcRenderer.on('spellingCheck', (_, arg) => {
+        document.getElementById("correct-word").innerHTML = arg.correctWord.toUpperCase();
+        document.getElementById("correct-word").style.backgroundColor = "#00ff00";
+        switch(arg.result) {
+            case "CORRECT":
+                document.getElementById("word-candidate").style.backgroundColor = "#00ff00";
+              break;
+            case "WRONG":
+                document.getElementById("word-candidate").style.backgroundColor = "#ff0000";
+              break;
+        }
+    }
+);
 
 ipcRenderer.on('reset', (event, arg) => {
 document.getElementById("correct-word").innerHTML = "";
