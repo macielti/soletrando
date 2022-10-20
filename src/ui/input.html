@@ -4,6 +4,7 @@
   <head>
     <meta charset="utf-8">
     <title>Soletrando - Terminal do Mesário</title>
+    <script src="input.js"></script> 
   </head>
 
   <style>
@@ -42,29 +43,6 @@
       font-size: 20px;
     }
   </style>
-
-  <script>
-    const { ipcRenderer } = require('electron');
-
-    function corrige(){
-      let data = {candidate: document.getElementById("candidate-input").value, 
-                  word: document.getElementById("word-input").value};
-      ipcRenderer.send('corrige', data);
-    }
-
-    function word_bind(){
-      let data = {candidate: document.getElementById("candidate-input").value, 
-                  word: document.getElementById("word-input").value};
-      ipcRenderer.send('wordsync', data);
-    }
-
-    function reset(){
-      ipcRenderer.send('reset', true);
-      document.getElementById("candidate-input").value = "";
-      document.getElementById("word-input").value = "";
-    }
-
-  </script>
 
   <body>
     <h1>Terminal do Mesário</h1>
