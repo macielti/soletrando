@@ -1,6 +1,3 @@
-# soletrando
+# Soletrando
 
-Trata-se de um software simples que busca auxiliar a realização de competições de soletando.
-
-## #TODO:
-  * Gerar instaladores tanto para GNU/Linux como para Windows.
+It is a simple software that serves as a platform for presentation of spelling competitions.
