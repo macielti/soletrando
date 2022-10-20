@@ -29,7 +29,7 @@ function createWindow () {
       contextIsolation: false}})
 
   //load the html page
-  presentationScreen.loadFile('./src/ui/index.html')
+  presentationScreen.loadFile('./src/ui/presentation.html')
   inputScreen.loadFile('./src/ui/input.html')
 
   //only show the windows when it is ready to show
