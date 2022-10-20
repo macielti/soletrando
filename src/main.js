@@ -7,6 +7,7 @@ const {ipcMain} = require('electron');
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let presentationScreen;
+let inputScreen;
 
 function createWindow () {
   // Create the browser window.
@@ -19,7 +20,7 @@ function createWindow () {
       nodeIntegration: true,
       contextIsolation: false}});
   console.log(path.join(__dirname, "ui", "input.js"));
-  secondWindow = new BrowserWindow({width: 400,
+  inputScreen = new BrowserWindow({width: 400,
     height: 450,
     show: false,
     backgroundColor: '#FFF',
@@ -29,14 +30,14 @@ function createWindow () {
 
   //load the html page
   presentationScreen.loadFile('./src/ui/index.html')
-  secondWindow.loadFile('./src/ui/input.html')
+  inputScreen.loadFile('./src/ui/input.html')
 
   //only show the windows when it is ready to show
   presentationScreen.on('ready-to-show', () => {
     presentationScreen.show()
   })
-  secondWindow.on('ready-to-show', () => {
-    secondWindow.show()
+  inputScreen.on('ready-to-show', () => {
+    inputScreen.show()
   })
 
 
@@ -45,14 +46,14 @@ function createWindow () {
   // secondWindow.webContents.openDevTools()
 
   // Emitted when the window is closed.
-  secondWindow.on('closed', function () {
+  inputScreen.on('closed', function () {
     presentationScreen = null
-    secondWindow = null
+    inputScreen = null
     app.quit()
   })
   presentationScreen.on('closed', function() {
     presentationScreen = null
-    secondWindow = null
+    inputScreen = null
     app.quit()
   })
 }
