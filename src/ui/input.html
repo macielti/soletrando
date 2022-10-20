@@ -47,13 +47,15 @@
     const { ipcRenderer } = require('electron');
 
     function corrige(){
-      let Data = { candidate:document.getElementById("candidate-input").value, word:document.getElementById("word-input").value}
-      ipcRenderer.send('corrige', Data);
+      let data = {candidate: document.getElementById("candidate-input").value, 
+                  word: document.getElementById("word-input").value};
+      ipcRenderer.send('corrige', data);
     }
 
     function word_bind(){
-      let Data = { candidate:document.getElementById("candidate-input").value, word:document.getElementById("word-input").value}
-      ipcRenderer.send('wordsync', Data);
+      let data = {candidate: document.getElementById("candidate-input").value, 
+                  word: document.getElementById("word-input").value};
+      ipcRenderer.send('wordsync', data);
     }
 
     function reset(){

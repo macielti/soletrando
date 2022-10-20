@@ -90,9 +90,9 @@ ipcMain.on('wordsync', (event, arg) => {
 });
 //receber o comando de correção
 ipcMain.on('corrige', (event, arg) => {
-  presentationScreen.webContents.send('corrige', arg);
+    presentationScreen.webContents.send('corrige', arg);
 });
 //resetar para entrar com uma nova palavra
 ipcMain.on('reset', (event, arg) => {
-  presentationScreen.webContents.send('reset', arg);
+    presentationScreen.webContents.send('reset', arg);
 });
