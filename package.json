@@ -20,7 +20,7 @@
     },
     "win": {
       "target": "NSIS"
-   }
+    }
   },
   "repository": {
     "type": "git",
@@ -36,7 +36,7 @@
   },
   "homepage": "https://github.com/macielti/soletrando#readme",
   "devDependencies": {
-    "electron": "^3.1.13",
+    "electron": "^7.2.4",
     "electron-builder": "^20.38.2"
   }
 }
