@@ -45,15 +45,11 @@
         document.getElementById("correct-word").style.backgroundColor = "#00ff00";
         if(arg.candidate.toLowerCase().trim() === arg.word.toLowerCase().trim()){
           document.getElementById("word-candidate").style.backgroundColor = "#00ff00";
-          var audio1 = new Audio();
-              audio1.src = "../../assets/certo.mp3";
-              audio1.play();
+          (new Audio("../../assets/correct.mp3")).play();
         }
         else{
           document.getElementById("word-candidate").style.backgroundColor = "#ff0000";
-          var audio1 = new Audio();
-              audio1.src = "../../assets/errou.mp3";
-              audio1.play();
+          (new Audio("../../assets/wrong.mp3")).play();
         }
       });
 
