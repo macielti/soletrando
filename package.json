@@ -2,7 +2,7 @@
   "name": "soletrando",
   "version": "3.0.0",
   "description": "Software to auxiliate in spelling competitions.",
-  "main": "./app/main.js",
+  "main": "./src/main.js",
   "scripts": {
     "start": "electron .",
     "dist": "electron-builder"
