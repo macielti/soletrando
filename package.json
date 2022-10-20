@@ -37,6 +37,6 @@
   "homepage": "https://github.com/macielti/soletrando#readme",
   "devDependencies": {
     "electron": "^15.5.5",
-    "electron-builder": "^20.38.2"
+    "electron-builder": "^23.6.0"
   }
 }
