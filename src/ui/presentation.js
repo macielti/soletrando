@@ -1,6 +1,6 @@
 const { ipcRenderer } = require('electron');
 
-ipcRenderer.on('word_bind', (event, arg) => {
+ipcRenderer.on('word_bind', (_, arg) => {
     document.getElementById("word-candidate").innerHTML = arg.candidate.toUpperCase();
 });
 
@@ -18,7 +18,7 @@ ipcRenderer.on('spellingCheck', (_, arg) => {
     }
 );
 
-ipcRenderer.on('reset', (_, _) => {
+ipcRenderer.on('reset', (_, __) => {
 document.getElementById("correct-word").innerHTML = "";
 document.getElementById("word-candidate").innerHTML = "";
 document.getElementById("word-candidate").style.backgroundColor = "";
