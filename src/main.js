@@ -1,3 +1,4 @@
+const path = require('path');
 // Modules to control application life and create native browser window
 const {app, BrowserWindow} = require('electron')
 //Module to make comunication betwenn the main and renderer process
@@ -5,29 +6,34 @@ const {ipcMain} = require('electron');
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
-let mainWindow
+let presentationScreen;
 
 function createWindow () {
   // Create the browser window.
   // mainWindow = new BrowserWindow({width: 800, height: 600, show: true})
-  mainWindow = new BrowserWindow({width: 800,
+  presentationScreen = new BrowserWindow({width: 800,
     height: 600,
     show: false,
-    backgroundColor: '#FFF'
-  })
+    backgroundColor: '#FFF',
+    webPreferences: {
+      nodeIntegration: true,
+      contextIsolation: false}});
+  console.log(path.join(__dirname, "ui", "input.js"));
   secondWindow = new BrowserWindow({width: 400,
     height: 450,
     show: false,
-    backgroundColor: '#FFF'
-  })
+    backgroundColor: '#FFF',
+    webPreferences: {
+      nodeIntegration: true,
+      contextIsolation: false}})
 
   //load the html page
-  mainWindow.loadFile('./src/index.html')
-  secondWindow.loadFile('./src/input.html')
+  presentationScreen.loadFile('./src/ui/index.html')
+  secondWindow.loadFile('./src/ui/input.html')
 
   //only show the windows when it is ready to show
-  mainWindow.on('ready-to-show', () => {
-    mainWindow.show()
+  presentationScreen.on('ready-to-show', () => {
+    presentationScreen.show()
   })
   secondWindow.on('ready-to-show', () => {
     secondWindow.show()
@@ -40,12 +46,12 @@ function createWindow () {
 
   // Emitted when the window is closed.
   secondWindow.on('closed', function () {
-    mainWindow = null
+    presentationScreen = null
     secondWindow = null
     app.quit()
   })
-  mainWindow.on('closed', function() {
-    mainWindow = null
+  presentationScreen.on('closed', function() {
+    presentationScreen = null
     secondWindow = null
     app.quit()
   })
@@ -68,7 +74,7 @@ app.on('window-all-closed', function () {
 app.on('activate', function () {
   // On macOS it's common to re-create a window in the app when the
   // dock icon is clicked and there are no other windows open.
-  if (mainWindow === null) {
+  if (presentationScreen === null) {
     createWindow()
   }
 })
@@ -79,13 +85,13 @@ app.on('activate', function () {
 
 ipcMain.on('wordsync', (event, arg) => {
     // Return some data to the renderer process with the mainprocess-response ID
-    mainWindow.webContents.send('word_bind', arg);
+    presentationScreen.webContents.send('word_bind', arg);
 });
 //receber o comando de correção
 ipcMain.on('corrige', (event, arg) => {
-    mainWindow.webContents.send('corrige', arg);
+  presentationScreen.webContents.send('corrige', arg);
 });
 //resetar para entrar com uma nova palavra
 ipcMain.on('reset', (event, arg) => {
-    mainWindow.webContents.send('reset', arg);
+  presentationScreen.webContents.send('reset', arg);
 });
