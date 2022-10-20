@@ -19,7 +19,6 @@ function onCheckSpelling() {
                                        correctWord: correctWord});
 }
 
-
 function word_bind(){
     let data = {candidate: document.getElementById("candidate-input").value, 
                 word: document.getElementById("word-input").value};
@@ -27,7 +26,7 @@ function word_bind(){
 }
 
 function reset(){
-    ipcRenderer.send('reset', true);
     document.getElementById("candidate-input").value = "";
     document.getElementById("word-input").value = "";
+    ipcRenderer.send('reset');
 }

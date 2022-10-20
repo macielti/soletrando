@@ -18,7 +18,7 @@ ipcRenderer.on('spellingCheck', (_, arg) => {
     }
 );
 
-ipcRenderer.on('reset', (event, arg) => {
+ipcRenderer.on('reset', (_, _) => {
 document.getElementById("correct-word").innerHTML = "";
 document.getElementById("word-candidate").innerHTML = "";
 document.getElementById("word-candidate").style.backgroundColor = "";
